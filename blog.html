@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог об AI и автоматизации | ChatBot24 Studio</title>
+    <meta name="description" content="Полезные материалы о чат-ботах, искусственном интеллекте и автоматизации бизнес-процессов">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .blog-header { padding: 120px 0 60px; text-align: center; }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding-bottom: 100px; }
+        .blog-card { background: var(--color-card-bg); backdrop-filter: blur(10px); border: 1px solid var(--color-card-border); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; }
+        .blog-card:hover { transform: translateY(-4px); border-color: var(--color-accent-start); }
+        .blog-image { height: 200px; background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end)); display: flex; align-items: center; justify-content: center; font-size: 64px; }
+        .blog-content { padding: 24px; }
+        .blog-date { font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px; }
+        .blog-title { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+        .blog-excerpt { font-size: 15px; color: var(--color-text-secondary); margin-bottom: 16px; }
+        .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 14px; color: var(--color-text-muted); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--color-text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: white; }
+        @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">ChatBot24 Studio</span>
+                </a>
+                <nav class="nav">
+                    <a href="/#problem" class="nav-link">Проблема</a>
+                    <a href="/#solution" class="nav-link">Решение</a>
+                    <a href="/#cases" class="nav-link">Кейсы</a>
+                    <a href="/#process" class="nav-link">Процесс</a>
+                    <a href="/blog.html" class="nav-link">Блог</a>
+                </nav>
+                <a href="/" class="btn btn-primary">На главную</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="blog-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Главная</a>
+                    <span>/</span>
+                    <span>Блог</span>
+                </div>
+                <h1 class="section-title">Блог об AI и автоматизации</h1>
+                <p class="section-intro">Полезные материалы о чат-ботах, искусственном интеллекте и автоматизации бизнес-процессов</p>
+            </div>
+        </section>
+
+        <section class="blog-grid container">
+            <article class="blog-card">
+                <div class="blog-image">📈</div>
+                <div class="blog-content">
+                    <div class="blog-date">15 января 2025</div>
+                    <h2 class="blog-title">Как чат-бот увеличивает конверсию на 40%</h2>
+                    <p class="blog-excerpt">Разбираем реальный кейс внедрения чат-бота в медицинской клинике. Как автоматизация первичного контакта привела к росту записей.</p>
+                    <button class="btn btn-primary" disabled>Скоро</button>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">⚠️</div>
+                <div class="blog-content">
+                    <div class="blog-date">10 января 2025</div>
+                    <h2 class="blog-title">5 ошибок при внедрении чат-бота</h2>
+                    <p class="blog-excerpt">Типичные ошибки, которые допускают компании при запуске чат-ботов. Как их избежать и не потерять деньги.</p>
+                    <button class="btn btn-primary" disabled>Скоро</button>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">💬</div>
+                <div class="blog-content">
+                    <div class="blog-date">5 января 2025</div>
+                    <h2 class="blog-title">Telegram vs WhatsApp: что выбрать для бизнеса</h2>
+                    <p class="blog-excerpt">Сравниваем две популярные платформы для чат-ботов. Преимущества и недостатки каждой для разных ниш.</p>
+                    <button class="btn btn-primary" disabled>Скоро</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">ChatBot24 Studio</div>
+                    <div class="footer-contacts">
+                        <a href="mailto:info@ChatBot24.su" class="footer-contact">info@ChatBot24.su</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="/" class="footer-link">Главная</a>
+                    <a href="/blog.html" class="footer-link">Блог</a>
+                </div>
+                <div class="footer-legal">
+                    <p class="footer-copyright">© 2025 ChatBot24 Studio</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

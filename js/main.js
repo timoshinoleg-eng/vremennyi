@@ -428,3 +428,129 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('ChatBot24 Studio v3.0 - Initialized');
 });
+/* ChatBot24 Studio v3.1 - Main JS with testimonials carousel */
+
+// Testimonials Carousel
+function initTestimonialsCarousel() {
+    const slider = document.querySelector('.testimonials-slider');
+    if (!slider) return;
+    
+    const track = slider.querySelector('.testimonials-track');
+    const prevBtn = slider.querySelector('.slider-btn-prev');
+    const nextBtn = slider.querySelector('.slider-btn-next');
+    const dotsContainer = slider.querySelector('.slider-dots');
+    const cards = slider.querySelectorAll('.testimonial-card');
+    
+    if (!track || cards.length === 0) return;
+    
+    let currentIndex = 0;
+    const totalCards = cards.length;
+    let autoPlayInterval;
+    
+    // Create dots
+    cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Перейти к отзыву ${i + 1}`);
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = slider.querySelectorAll('.slider-dot');
+    
+    function getVisibleCount() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+    
+    function updateSlider() {
+        const visibleCount = getVisibleCount();
+        const cardWidth = cards[0].offsetWidth + 24; // including gap
+        const offset = -currentIndex * cardWidth;
+        track.style.transform = `translateX(${offset}px)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    function goToSlide(index) {
+        const visibleCount = getVisibleCount();
+        const maxIndex = totalCards - visibleCount;
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        updateSlider();
+        resetAutoPlay();
+    }
+    
+    function nextSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = totalCards - visibleCount;
+        if (currentIndex < maxIndex) {
+            goToSlide(currentIndex + 1);
+        } else {
+            goToSlide(0);
+        }
+    }
+    
+    function prevSlide() {
+        if (currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+        }
+    }
+    
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+    nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    
+    track.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+        }
+    }, { passive: true });
+    
+    // Pause on hover
+    slider.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    slider.addEventListener('mouseleave', startAutoPlay);
+    
+    // Update on resize
+    window.addEventListener('resize', throttle(updateSlider, 200));
+    
+    // Init
+    updateSlider();
+    startAutoPlay();
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
+
+// Utility functions
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
