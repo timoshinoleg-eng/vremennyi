@@ -1,0 +1,21 @@
+﻿{
+  "name": "ChatBot24 Studio",
+  "short_name": "ChatBot24",
+  "description": "Чат-боты под ключ для бизнеса",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f1a",
+  "theme_color": "#0f0f1a",
+  "icons": [
+    {
+      "src": "/assets/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

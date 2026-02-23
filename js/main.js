@@ -43,6 +43,23 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', throttle(handleScroll, 100), { passive: true });
 
     // ========================================
+    // COOKIE BANNER
+    // ========================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+
+    if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
+        setTimeout(() => cookieBanner.classList.add('active'), 1000);
+    }
+
+    if (cookieAccept) {
+        cookieAccept.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.remove('active');
+        });
+    }
+
+    // ========================================
     // MOBILE MENU
     // ========================================
     const burger = document.getElementById('burger');
@@ -246,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (!consentInput.checked) {
-                showError('consentError', 'Необходимо согласие на обработку персональных данных');
+                showError('consentError', 'Необходимо согласие на обработку персональных данных (152-ФЗ)');
                 isValid = false;
             }
 
@@ -373,6 +390,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
+    // FADE UP ANIMATIONS
+    // ========================================
+    const fadeElements = document.querySelectorAll('.fade-up');
+    if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        fadeElements.forEach(el => fadeObserver.observe(el));
+    }
+
+    // ========================================
+    // MAGNETIC BUTTONS
+    // ========================================
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+        document.querySelectorAll('.btn-magnetic').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+    }
+
+    // ========================================
     // ANALYTICS
     // ========================================
     function sendAnalytics(eventName) {
@@ -426,11 +477,12 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    console.log('ChatBot24 Studio v3.0 - Initialized');
+    console.log('ChatBot24 Studio v3.2 - Initialized');
 });
-/* ChatBot24 Studio v3.1 - Main JS with testimonials carousel */
 
-// Testimonials Carousel
+// ========================================
+// TESTIMONIALS CAROUSEL
+// ========================================
 function initTestimonialsCarousel() {
     const slider = document.querySelector('.testimonials-slider');
     if (!slider) return;
@@ -466,11 +518,10 @@ function initTestimonialsCarousel() {
     
     function updateSlider() {
         const visibleCount = getVisibleCount();
-        const cardWidth = cards[0].offsetWidth + 24; // including gap
+        const cardWidth = cards[0].offsetWidth + 24;
         const offset = -currentIndex * cardWidth;
         track.style.transform = `translateX(${offset}px)`;
         
-        // Update dots
         dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
         });
@@ -509,7 +560,17 @@ function initTestimonialsCarousel() {
         startAutoPlay();
     }
     
-    // Event listeners
+    function throttle(func, limit) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+    
     prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
     nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
     
@@ -542,15 +603,3 @@ function initTestimonialsCarousel() {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
-
-// Utility functions
-function throttle(func, limit) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}

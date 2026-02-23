@@ -23,7 +23,11 @@
     <meta name="twitter:description" content="Автоматизация заявок и интеграция с CRM">
     <meta name="twitter:image" content="/assets/og-image.jpg">
     
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/assets/favicon-32x32.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.svg">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <meta name="theme-color" content="#0f0f1a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -85,6 +89,23 @@
     </script>
 </head>
 <body>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p class="cookie-text">
+                Мы используем cookies для улучшения работы сайта и аналитики. 
+                Продолжая использовать сайт, вы соглашаетесь с 
+                <a href="/privacy-policy.html">политикой конфиденциальности</a>.
+            </p>
+            <button class="cookie-btn" id="cookieAccept">Понятно</button>
+        </div>
+    </div>
+    
+    <!-- Gradient Orbs Background -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="noise-overlay"></div>
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
@@ -102,7 +123,7 @@
                     <a href="#faq" class="nav-link">FAQ</a>
                     <a href="/blog.html" class="nav-link">Блог</a>
                 </nav>
-                <button class="btn btn-primary header-cta" data-modal="form">Получить бесплатный план внедрения бота</button>
+                <button class="btn btn-primary btn-magnetic header-cta" data-modal="form">Получить бесплатный план внедрения бота</button>
                 <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
                     <span class="burger-line"></span>
                     <span class="burger-line"></span>
@@ -120,7 +141,7 @@
                 <a href="#faq" class="mobile-nav-link">FAQ</a>
                 <a href="/blog.html" class="mobile-nav-link">Блог</a>
             </nav>
-            <button class="btn btn-primary mobile-cta" data-modal="form">Получить бесплатный план внедрения бота</button>
+            <button class="btn btn-primary btn-magnetic mobile-cta" data-modal="form">Получить бесплатный план внедрения бота</button>
         </div>
     </header>
 
@@ -145,7 +166,7 @@
                             </ul>
                         </div>
                         
-                        <button class="btn btn-primary btn-lg hero-cta cta-button" data-modal="form">Получить бесплатный план внедрения бота</button>
+                        <button class="btn btn-primary btn-magnetic btn-lg hero-cta cta-button" data-modal="form">Получить бесплатный план внедрения бота</button>
                         <p class="hero-note">Созвон 30–40 минут, в течение одного рабочего дня подготовим для вас план сценария и интеграций. Ответим в течение одного рабочего дня.</p>
                         
                         <div class="hero-trust" data-aos="fade-up">
@@ -176,28 +197,28 @@
                     <p class="problem-accent">Мы посчитали: если у вас 20+ заявок в день и средний чек от 15 000 ₽, даже 10% потерь — это минимум 90 000 ₽ в месяц, которые уходят к конкурентам.</p>
                 </div>
                 <div class="problem-grid">
-                    <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="100" class="fade-up fade-up-delay-1">
                         <div class="problem-icon pain-icon">⏰</div>
                         <h3 class="problem-card-title">Менеджеры физически не могут отвечать 24/7</h3>
                         <p class="problem-card-text">Клиент пишет вечером или ночью и не получает ответ. Через 10–15 минут он уже общается с тем, кто ответил быстрее.</p>
                     </div>
-                    <div class="problem-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="150" class="fade-up fade-up-delay-2">
                         <div class="problem-icon pain-icon">📉</div>
                         <h3 class="problem-card-title">Заявки теряются в мессенджерах и не доходят до CRM</h3>
                         <p class="problem-card-text">Диалоги «висят» в личных чатах менеджеров, часть обращений вообще не заносится в CRM — вы видите не воронку, а её фрагменты.</p>
                     </div>
-                    <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="200" class="fade-up fade-up-delay-3">
                         <div class="problem-icon pain-icon">🎯</div>
                         <h3 class="problem-card-title">Нет фильтрации нецелевых обращений</h3>
                         <p class="problem-card-text">Менеджеры тратят время на людей, которые не готовы покупать.</p>
                     </div>
-                    <div class="problem-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="250" class="fade-up fade-up-delay-4">
                         <div class="problem-icon pain-icon">⏱️</div>
                         <h3 class="problem-card-title">Рутина съедает часы рабочего времени</h3>
                         <p class="problem-card-text">Менеджеры по 30–50 раз в день отвечают на одни и те же вопросы. Это зарплата, которая уходит на копипаст, а не на продажи.</p>
                     </div>
                 </div>
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary" data-modal="form">Получить бесплатный план внедрения бота</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic" data-modal="form">Получить бесплатный план внедрения бота</button></div>
             </div>
         </section>
         <!-- SOLUTION -->
@@ -206,32 +227,32 @@
                 <h2 class="section-title" data-aos="fade-up">Что бот берёт на себя, и что получает ваш бизнес взамен</h2>
                 <p class="section-intro" data-aos="fade-up">Мы не просто «делаем бота». Мы выстраиваем систему автоматического сбора и квалификации заявок.</p>
                 <div class="solution-grid">
-                    <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="100" class="fade-up fade-up-delay-1">
                         <div class="solution-number">01</div>
                         <h3 class="solution-card-title">Мгновенный ответ клиенту после клика по рекламе</h3>
                         <p class="solution-card-text">Сразу после клика по объявлению человек попадает в сценарий бота в Telegram или на сайте и получает первый ответ за доли секунды: без ожидания и «мы вам перезвоним».</p>
                         <div class="solution-metric">Фактически — ответ за 0 секунд вместо 20–40 минут ожидания менеджера.</div>
                     </div>
-                    <div class="solution-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="150" class="fade-up fade-up-delay-2">
                         <div class="solution-number">02</div>
                         <h3 class="solution-card-title">Квалификация лидов по вашим правилам</h3>
                         <p class="solution-card-text">Бот задаёт 5–7 уточняющих вопросов (бюджет, срок, формат, город, интересующий продукт) и делит обращения на «тёплые» и «холодные».</p>
                         <div class="solution-metric">Менеджеры сразу видят приоритет лида и экономят до 2–3 часов в день на пустых диалогах.</div>
                     </div>
-                    <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="200" class="fade-up fade-up-delay-3">
                         <div class="solution-number">03</div>
                         <h3 class="solution-card-title">Автоматическая передача данных в CRM</h3>
                         <p class="solution-card-text">После прохождения сценария данные автоматически создаются в Bitrix24, amoCRM или другой системе. Никаких «я забыл внести».</p>
                         <div class="solution-metric">100% лидов фиксируются</div>
                     </div>
-                    <div class="solution-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="250" class="fade-up fade-up-delay-4">
                         <div class="solution-number">04</div>
                         <h3 class="solution-card-title">Запись на консультацию без участия менеджера</h3>
                         <p class="solution-card-text">Бот записывает на консультацию, вебинар или услугу через календарь. Клиент выбирает время сам.</p>
                         <div class="solution-metric">−18% отмен встреч</div>
                     </div>
                 </div>
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary" data-modal="form">Получить бесплатный план внедрения бота</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic" data-modal="form">Получить бесплатный план внедрения бота</button></div>
             </div>
         </section>
 
@@ -241,25 +262,25 @@
                 <h2 class="section-title" data-aos="fade-up">Что получает ваш бизнес после внедрения чат-бота</h2>
                 <p class="section-intro" data-aos="fade-up">Это не просто автоматизация — это контроль над воронкой продаж.</p>
                 <div class="benefits-grid">
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="100" class="fade-up fade-up-delay-1">
                         <div class="benefit-icon">📈</div>
                         <h3 class="benefit-card-title">Рост конверсии из трафика</h3>
                         <p class="benefit-card-text">Клиент получает ответ сразу, а не через час. Скорость ответа = конверсия.</p>
                         <div class="benefit-metric">+20-30% к конверсии</div>
                     </div>
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="150" class="fade-up fade-up-delay-2">
                         <div class="benefit-icon">⏳</div>
                         <h3 class="benefit-card-title">Экономия времени менеджеров</h3>
                         <p class="benefit-card-text">До 1–3 часов в день на каждом сотруднике. Бот забирает рутину, люди занимаются продажами.</p>
                         <div class="benefit-metric">Экономия до 60 часов в месяц</div>
                     </div>
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="200" class="fade-up fade-up-delay-3">
                         <div class="benefit-icon">📊</div>
                         <h3 class="benefit-card-title">Прозрачная аналитика заявок</h3>
                         <p class="benefit-card-text">Все заявки фиксируются в CRM. Вы видите реальные цифры, а не догадки.</p>
                         <div class="benefit-metric">100% видимость воронки</div>
                     </div>
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="250" class="fade-up fade-up-delay-4">
                         <div class="benefit-icon">🌐</div>
                         <h3 class="benefit-card-title">Стабильная обработка обращений 24/7</h3>
                         <p class="benefit-card-text">Бот работает даже когда офис закрыт. Ночью, в выходные, в праздники.</p>
@@ -275,22 +296,22 @@
                 <h2 class="section-title" data-aos="fade-up">Интеграция чат-бота с CRM и сервисами</h2>
                 <p class="section-intro" data-aos="fade-up">Мы подключаем чат-бот к вашей экосистеме. Все данные передаются автоматически — без ручного ввода.</p>
                 <div class="integrations-grid">
-                    <div class="integration-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="integration-card" data-aos="fade-up" data-aos-delay="100" class="fade-up fade-up-delay-1">
                         <div class="integration-logos"><div class="integration-logo integration-bitrix">B24</div><div class="integration-logo integration-amocrm">amo</div></div>
                         <h3 class="integration-card-title">Подключение к Bitrix24 и amoCRM</h3>
                         <p class="integration-card-text">Полная интеграция с популярными CRM. Лиды, сделки, контакты — всё создаётся автоматически.</p>
                     </div>
-                    <div class="integration-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="integration-card" data-aos="fade-up" data-aos-delay="150" class="fade-up fade-up-delay-2">
                         <div class="integration-logos"><div class="integration-logo integration-sheets">GS</div><div class="integration-logo integration-1c">1С</div></div>
                         <h3 class="integration-card-title">Передача данных в Google Sheets и 1С</h3>
                         <p class="integration-card-text">Экспорт в таблицы и учётные системы. Гибкая настройка под ваши процессы.</p>
                     </div>
-                    <div class="integration-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="integration-card" data-aos="fade-up" data-aos-delay="200" class="fade-up fade-up-delay-3">
                         <div class="integration-logos"><div class="integration-icon">📅</div><div class="integration-icon">🔄</div></div>
                         <h3 class="integration-card-title">Интеграция с календарями и автоворонками</h3>
                         <p class="integration-card-text">Автоматическая запись на консультации. Прогрев клиентов через цепочку сообщений.</p>
                     </div>
-                    <div class="integration-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="integration-card" data-aos="fade-up" data-aos-delay="250" class="fade-up fade-up-delay-4">
                         <div class="integration-logos"><div class="integration-icon">✈️</div><div class="integration-icon">✉️</div></div>
                         <h3 class="integration-card-title">Уведомления менеджерам в мессенджеры</h3>
                         <p class="integration-card-text">Мгновенные алерты в Telegram или email. Менеджер узнаёт о горячей заявке за секунды.</p>
@@ -364,7 +385,7 @@
                         </div>
                     </div>
                     
-                    <div class="case-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="case-card" data-aos="fade-up" data-aos-delay="100" class="fade-up fade-up-delay-1">
                         <div class="case-header"><span class="case-tag">Кейс 2</span><h3 class="case-title">Сеть студий красоты «Люкс»</h3></div>
                         <div class="case-body">
                             <div class="case-section"><p class="case-label">Задача:</p><p class="case-text">автоматизировать запись и квалификацию клиентов.</p></div>
@@ -374,7 +395,7 @@
                         </div>
                     </div>
                     
-                    <div class="case-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="case-card" data-aos="fade-up" data-aos-delay="200" class="fade-up fade-up-delay-3">
                         <div class="case-header"><span class="case-tag">Кейс 3</span><h3 class="case-title">Финансовая компания «Прогресс»</h3></div>
                         <div class="case-body">
                             <div class="case-section"><p class="case-label">Задача:</p><p class="case-text">квалификация лидов перед передачей в отдел продаж.</p></div>
@@ -401,7 +422,7 @@
                     <p class="roi-note">Важно: Мы не обещаем «+300% за неделю». Мы анализируем текущую воронку, считаем реальную точку потерь, внедряем автоматизацию там, где она даёт максимум эффекта.</p>
                 </div>
                 
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-lg" data-modal="form">Хочу такие же цифры</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic btn-lg" data-modal="form">Хочу такие же цифры</button></div>
             </div>
         </section>
 
@@ -510,7 +531,7 @@
                 <h2 class="section-title" data-aos="fade-up">Как мы разрабатываем чат-бота под ключ</h2>
                 <p class="section-intro" data-aos="fade-up">Это снимает страх «как это вообще происходит».</p>
                 <div class="process-timeline">
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100" class="fade-up fade-up-delay-1">
                         <div class="process-number">1</div>
                         <div class="process-content">
                             <h3 class="process-step-title">Аудит воронки и текущей системы заявок (1–2 дня)</h3>
@@ -518,7 +539,7 @@
                             <div class="process-meta"><span class="process-result">Документ с анализом текущей воронки</span></div>
                         </div>
                     </div>
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="150">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="150" class="fade-up fade-up-delay-2">
                         <div class="process-number">2</div>
                         <div class="process-content">
                             <h3 class="process-step-title">Проработка сценария бота и логики квалификации (3–5 дней)</h3>
@@ -526,7 +547,7 @@
                             <div class="process-meta"><span class="process-result">Утверждённый сценарий диалога</span></div>
                         </div>
                     </div>
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200" class="fade-up fade-up-delay-3">
                         <div class="process-number">3</div>
                         <div class="process-content">
                             <h3 class="process-step-title">Разработка и интеграции (5–7 дней)</h3>
@@ -534,7 +555,7 @@
                             <div class="process-meta"><span class="process-result">Работающий бот с интеграциями</span></div>
                         </div>
                     </div>
-                    <div class="process-step" data-aos="fade-up" data-aos-delay="250">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="250" class="fade-up fade-up-delay-4">
                         <div class="process-number">4</div>
                         <div class="process-content">
                             <h3 class="process-step-title">Тестирование и запуск (3–5 дней)</h3>
@@ -552,7 +573,7 @@
                     </div>
                 </div>
                 <div class="process-note" data-aos="fade-up"><p>Средний срок запуска — 7–14 дней.</p></div>
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-lg" data-modal="form">Получить бесплатный план внедрения бота</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic btn-lg" data-modal="form">Получить бесплатный план внедрения бота</button></div>
             </div>
         </section>
 
@@ -589,7 +610,7 @@
                     <p>Первый созвон — разбор вашей ситуации, ориентировочная смета, план работ. Никаких предоплат до согласования объёма.</p>
                 </div>
                 
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary" data-modal="form">Получить бесплатный план внедрения бота</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic" data-modal="form">Получить бесплатный план внедрения бота</button></div>
             </div>
         </section>
 
@@ -618,7 +639,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary" data-modal="form">Проверить ваш бизнес</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic" data-modal="form">Проверить ваш бизнес</button></div>
             </div>
         </section>
 
@@ -670,7 +691,7 @@
                         <p>Бот не заменяет менеджеров. Он заменяет: ожидание, хаос, человеческий фактор, потери. Он забирает рутину. И оставляет людям продажи.</p>
                     </div>
                 </div>
-                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-lg" data-modal="form">Получить бесплатный план внедрения бота</button></div>
+                <div class="section-cta" data-aos="fade-up"><button class="btn btn-primary btn-magnetic btn-lg" data-modal="form">Получить бесплатный план внедрения бота</button></div>
             </div>
         </section>
 
@@ -719,7 +740,7 @@
                     <p class="final-cta-subtitle">Разберём вашу задачу и предложим структуру сценария и интеграций.</p>
                     <p class="final-cta-text">Мы разберём вашу воронку и покажем, где вы теряете деньги уже сейчас. И если автоматизация вам не нужна — скажем об этом честно.</p>
                     <p class="final-cta-accent">Но в 9 из 10 случаев проблема не в рекламе. Проблема в скорости ответа и системности.</p>
-                    <button class="btn btn-primary btn-xl" data-modal="form">Получить бесплатный план внедрения бота</button>
+                    <button class="btn btn-primary btn-magnetic btn-xl" data-modal="form">Получить бесплатный план внедрения бота</button>
                     <p class="final-cta-note">Оставьте контакты — в течение одного рабочего дня свяжемся, зададим 5–7 уточняющих вопросов и подготовим для вас план сценария и интеграций и ориентировочную смету по этапам. Без навязчивых продаж: вы получаете понятный план, по которому можно работать с нами или своей командой.</p>
                 </div>
             </div>
@@ -752,7 +773,7 @@
                 </div>
             </div>
             <div class="footer-cta-mobile">
-                <button class="btn btn-primary" data-modal="form">Получить бесплатный план внедрения бота</button>
+                <button class="btn btn-primary btn-magnetic" data-modal="form">Получить бесплатный план внедрения бота</button>
             </div>
         </div>
     </footer>
@@ -814,7 +835,7 @@
                         <span class="form-error" id="consentError"></span>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-lg form-submit" id="submitBtn">
+                    <button type="submit" class="btn btn-primary btn-magnetic btn-lg form-submit" id="submitBtn">
                         <span class="submit-text">Отправить заявку</span>
                         <span class="submit-loader" hidden>Отправка...</span>
                     </button>
@@ -853,7 +874,7 @@
                     <a href="mailto:info@ChatBot24.su">info@ChatBot24.su</a>
                     <a href="https://t.me/zerocoder1" target="_blank">@zerocoder1</a>
                 </div>
-                <button class="btn btn-primary" id="retryBtn">Попробовать снова</button>
+                <button class="btn btn-primary btn-magnetic" id="retryBtn">Попробовать снова</button>
             </div>
         </div>
     </div>
