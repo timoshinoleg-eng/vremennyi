@@ -601,5 +601,28 @@ function initTestimonialsCarousel() {
     startAutoPlay();
 }
 
+// 3D Tilt Effect for Feature Cards
+document.querySelectorAll('[data-tilt]').forEach(card => {
+    if (window.matchMedia('(pointer: coarse)').matches) return; // Disable on touch devices
+    
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+});
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
