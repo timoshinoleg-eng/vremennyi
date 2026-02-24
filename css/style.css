@@ -573,6 +573,25 @@ body {
 .telegram-widget:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(0, 136, 204, 0.6); }
 .telegram-icon { width: 28px; height: 28px; }
 
+/* Touch targets for accessibility (48x48px minimum) */
+.slider-dot,
+.slider-btn {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+@media (max-width: 768px) {
+  .nav-link,
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .btn {
+    min-height: 48px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .testimonial-card { flex: 0 0 calc(50% - 12px); }

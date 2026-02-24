@@ -1,0 +1,15 @@
+# ChatBot24 Studio - LLM Access Rules
+
+## Allowed
+- / - Main page
+- /blog.html - Blog index
+- /blog/*.html - Blog articles
+- /privacy-policy.html - Privacy policy
+
+## Disallowed
+- /api/* - API endpoints
+
+## Description
+ChatBot24 Studio develops custom chatbots for business automation,
+CRM integration, and lead qualification. Primary language: Russian.
+Contact: info@ChatBot24.su
