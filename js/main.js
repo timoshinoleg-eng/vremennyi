@@ -626,3 +626,4 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
+// Force update 2026-02-24 15:43:47
